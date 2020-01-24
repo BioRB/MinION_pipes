@@ -17,7 +17,7 @@ Part 3: The contigs generate from CAP3 (all the four files generated in the four
 Part 4: Once the whole genome of the virus have been reconstructed this draft sequence is polished using DraftPolisher that correct eventual errors occurred during the assembling of the contigs. At this purpose, the SPAdes consensus sequences are used as reference database to perform this consensus level polishing of the draft sequence.
 Part 5: The polished draft genome is passed trough a second step of polishing, this time at signal-level, by using a Nanopolish-based python script: nanopolish_pipe_step9.py  
 ## Prerequisites
-We used a Slurm based cluster to perform our analyses thus all of our scripts are designed to run on this kind of architecture.
+We used a Slurm based cluster to perform our analyzes thus all of our scripts are designed to run on this kind of architecture.
 
 ## Installation
 To run these scripts, each of the tools used needs to be installed before to launch the process.
