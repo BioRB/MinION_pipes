@@ -3,6 +3,7 @@
 A pipeline developed to analyse MinION sequencing data for the reconstruction of viral genomes
 
 ## Description
+![alt text](https://github.com/BioRB/MinION_pipes/blob/master/Figure1.tif)
 
 This pipeline was developed to analyse MinION sequencig raw data. It is composed of 4 parts:
 Part 1: Basecalling and demultiplexing [Guppy]
