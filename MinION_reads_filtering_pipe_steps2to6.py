@@ -26,7 +26,7 @@ process = Popen(command, shell=True, stdout=subprocess.PIPE)
 process.communicate()
 print("finish Filtlong and starting SPAdes")
 command = '''
-srun -A "R" -J "R" -c 74 --mem=250GB -t infinite --output=out.txt --error=errs.txt bash -c '/usr/bin/python2 /home/brancaccior/SPAdes-3.10.1-Linux/bin/spades.py --only-assembler --careful -s icb2_fin_FL_output.fastq.gz -t 74 -m 200 -k 21,33,55,77 -o ./spaout/ -t 74 -m 240'
+srun -A "R" -J "R" -c 78 --mem=250GB -t infinite --output=out.txt --error=errs.txt bash -c '/usr/bin/python2 /home/brancaccior/SPAdes-3.10.1-Linux/bin/spades.py --only-assembler --careful -s icb2_fin_FL_output.fastq.gz -t 74 -m 200 -k 21,33,55,77 -o ./spaout/ -t 74 -m 240'
 '''
 process = Popen(command, shell=True, stdout=subprocess.PIPE)
 process.communicate()
