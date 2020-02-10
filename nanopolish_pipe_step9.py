@@ -41,8 +41,10 @@ os.system(
     "find . -name 'polished_genome.fa' -exec cat {} + > all_seqs.fasta"
 )
 os.system(
-    "srun -A m -J M -c 10 --mem=80GB -t infinite --output=out.out --error=errs.txt bash -c 'cap3 all_seqs.fasta > final_consensus.fasta'"
+    "srun -A m -J M -c 10 --mem=80GB -t infinite --output=out.out --error=errs.txt bash -c 'cap3 all_seqs.fasta > final_consensus.out'"
 )
 
+print("the final consensus in fasta format is in the file all_seqs.fasta.cap.contigs")
 print("finish!!!!")
+
 sys.exit()
