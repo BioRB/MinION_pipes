@@ -38,7 +38,7 @@ for dirf in glob.glob(diro + '/*'):
                 "srun -A m -J M -c 40 --mem=150GB -t infinite --output=out.out --error=errs.txt bash -c 'nanopolish vcf2fasta --skip-checks -g {0} {1}/polished.vcf > {1}/polished_genome.fa'".format(
                     draft_g, dirf))
 os.system(
-    "find . -name  'polished_genome.fa' -exec cat {} + > all_seqs.fasta"
+    "find . -name 'polished_genome.fa' -exec cat {} + > all_seqs.fasta"
 )
 os.system(
     "srun -A m -J M -c 10 --mem=80GB -t infinite --output=out.out --error=errs.txt bash -c 'cap3 all_seqs.fasta > final_consensus.fasta'"
