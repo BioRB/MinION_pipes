@@ -21,7 +21,7 @@ We used a Slurm based cluster to perform our analyzes thus all of our scripts ar
 
 ## Installation
 To run these scripts, each of the tools used needs to be installed before to launch the process.
-Tools to install: Guppy V3.1.5+, Porechop V0.2.4, Nanofilt V2.2.0, Filtlong V0.2.0, SPAdes V3.10.1, CAP3 02/10/15, BLAST V2.9.0+, MUSCLE V3.8.1551, Nanopolish V0.11.0, Minimap2 V2.15, Samtools version 1.9.   
+Tools to install: Guppy V3.1.5+, Porechop V0.2.4, Nanofilt V2.2.0, Filtlong V0.2.0, SPAdes V3.10.1, CAP3 02/10/15, BLAST V2.9.0+, MUSCLE V3.8.1551,fasta-splitter V0.2.4, Nanopolish V0.11.0, Minimap2 V2.15, Samtools version 1.9.   
 Details on DraftPolisher installation and use are present here :[https://github.com/BioRB/DraftPolisher]   
 
 ## Usage 
