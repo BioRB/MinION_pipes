@@ -8,48 +8,47 @@ A pipeline developed to analyse MinION sequencing data for the reconstruction of
 
 </p>
 
-This pipeline was developed to analyse MinION sequencig raw data. It is composed of 4 parts:
-Part 1: Basecalling and demultiplexing [Guppy]
-Part 2: Filtering and assembling [Porechop, Nanofilt, Filtlong, SPAdes, CAP3]
-Here a python script that includes all these tools: MinION_reads_filtering_pipe_steps2to6.py 
-This script perform a polishing of the raw data and generate a first de novo assemblig using SPAdes tool. After, it takes the SPAdes contigs and performs a second step of de novo assembling using CAP3. Four consecutive assembling steps
-are performed using CAP3.
-Part 3: The contigs generate from CAP3 (all the four files generated in the four consecutive CAP3 assembling steps) are used to manually reconstruct the viral genome, using BLAST and MUSCLE allignment tools, to identify the contigs and allowing a proper reconstruction of the whole genome of the virus. 
-Part 4: Once the whole genome of the virus have been reconstructed this draft sequence is polished using DraftPolisher that correct eventual errors occurred during the assembling of the contigs. At this purpose, the SPAdes consensus sequences are used as reference database to perform this consensus level polishing of the draft sequence.
-Part 5: The polished draft genome is passed trough a second step of polishing, this time at signal-level, by using a Nanopolish-based python script: nanopolish_pipe_step9.py  
+This pipeline was developed to analyse MinION sequencig raw data, to generate a consensus sequence for a viral genome.
+This script perform a polishing of the raw data and generate a de novo assemblig using Canu tool. After, it takes the canu contigs and performs a step of polishing using Medaka tool. 
+
 ## Prerequisites
-We used a Slurm based cluster to perform our analyzes thus all of our scripts are designed to run on this kind of architecture.
+This pipe was written in python3
+Guppy is required for the basecalling.
+Nanofilt and filtlong are required for the filtering of the reads.
+Canu is required for the assembling step.
+Medaka is required for the polishing step.
 
 ## Installation
 To run these scripts, each of the tools used needs to be installed before to launch the process.
-Tools to install: Guppy V3.1.5+, Porechop V0.2.4, Nanofilt V2.2.0, Filtlong V0.2.0, SPAdes V3.10.1, CAP3 02/10/15, BLAST V2.9.0+, MUSCLE V3.8.1551, fasta-splitter V0.2.4, Nanopolish V0.11.0, Minimap2 V2.15, Samtools version 1.9.   
-Details on DraftPolisher installation and use are present here :[https://github.com/BioRB/DraftPolisher]   
+Tools to install: Guppy, Nanofilt, Filtlong, Canu, Medaka.  
+   
+## Parameters
+  * #### Mandatory
+| Name  | Example value | Description     |
+|------------|---------------|-----------------|
+
+| fast5_path | path/to/file | path to fast5 files | 
+| flowcell | flowcell code | the code of flowcell used (ex. FLO-MIN106) |
+| kit | kit_used | the MinION kit used (ex. SQK-LSK109) |
+| threads | nr. of threads (int)| threads to be used (ex. 8) |
+| num | num_callers (int) | number of callers to use (ex. 8) |
+| barcode | barcode kit code | the code of the barcodes kit used (ex. EXP-PBC001 ) |
+| medaka_m | medaka model | define a model based on the basecaller (ex. r941_min_high_g303) - see medaka tool for more details - |
+
+  * #### Flags
+
+Flags are special parameters without value.
+
+| Name      | Description     |
+|-----------|-----------------|
+| -h   | Display help |
 
 ## Usage 
 
-Part 1:
-```
-srun -A "minion" -J "minion" -c 40 --mem=250GB -t infinite --output=out.txt --error=errs.txt bash -c 'guppy_basecaller –i fast5_folder -s guppy_out --flowcell FLO-MIN106 --kit SQK-LSK109 --cpu_threads_per_caller 70 --num_callers 8 --barcode_kits EXP-PBC001 --trim_barcodes'
-```
 
-Part 2:
-```
-python MinION_reads_filtering_pipe_steps2to6.py MinION_raw_reads.fastq
-```
-Part 3:
-```
-'blastn -db nt -query cap3out.fasta -out blast.out -task blastn -outfmt "6 qseqid qlen evalue bitscore score pident mismatch gaps ppos staxid ssciname scomname sblastname stitle sskingdom qstart qend sstart send" -max_target_seqs 1  -num_threads 78
-```
-```
-'muscle -clw -in cap3out.fasta -out muscle.out
-```
-Part4:
-```
-python DraftPolisher_cov.py -q query.fa -s subject.fa -f reads.fa -k 8
-```
 Part5:
 ```
-python nanopolish_pipe_step9.py raw_reads.fasta /path_to_fast5 draft_genome.fasta
+python3 MinION_pipe.py fast5_path flowcell kit threads num barcode medaka_m 
 ```
 
 ## Contributions
