@@ -26,6 +26,9 @@ Tools to install: Guppy, Nanofilt, Filtlong, Canu, Medaka.
  ```conda install -c bioconda nanofilt ```
  
  ```conda install -c bioconda filtlong```
+ 
+ ```conda install -c bioconda canu```
+ 
 ## Parameters
   * #### Mandatory
 | Name  | Example value | Description     |
