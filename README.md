@@ -22,6 +22,7 @@ Medaka is required for the polishing step.
 To run these scripts, each of the tools used needs to be installed before to launch the process.
 Tools to install: Guppy, Nanofilt, Filtlong, Canu, Medaka.  
  Get Guppy from the MinION comunity and install it
+ 
  ```conda install -c bioconda nanofilt ```
  
  ```conda install -c bioconda filtlong```
