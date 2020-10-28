@@ -8,8 +8,7 @@ parser.add_argument("--kit", "-k", help="the MinION kit used (ex. SQK-LSK109)", 
 parser.add_argument("--threads", "-t", help="threads to be used (ex. 16)", type=int)
 parser.add_argument("--num", "-n", help="number of callers to use (ex. 8)", type=int)
 parser.add_argument("--barcode", "-bc", help="the code of the barcodes kit used (ex. EXP-PBC001 )", type=str)
-parser.add_argument("--medaka_m", "-n", help="define a model based on the basecaller (ex. r941_min_high_g303) - "
-                                             "see medaka tool for more details -", type=str)
+parser.add_argument("--medaka_m", "-n", help="define a model based on the basecaller (ex. r941_min_high_g303) see medaka tool for more details", type=str)
 args = parser.parse_args()
 subprocess.call(["guppy_basecaller", "--input_path", args.fast5_path, "--save_path", "./guppy_out", "--flowcell", args.flowcell,
                  "--kit", args.kit, "--cpu_threads_per_caller", args.threads, "--num_callers", args.num, "--barcode_kits", args.barcode,
