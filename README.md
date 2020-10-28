@@ -4,7 +4,8 @@ A pipeline developed to analyse MinION sequencing data for the reconstruction of
 
 ## Description
 <p align="center">
-<img width="495" height="625" src="https://github.com/BioRB/MinION_pipes/blob/master/Figure123.jpeg">
+<img width="495" height="625" src="https://user-images.githubusercontent.com/43418626/97430029-91be2800-1918-11eb-87ec-c9f931ab4aaa.jpeg">
+
 </p>
 
 This pipeline was developed to analyse MinION sequencig raw data. It is composed of 4 parts:
