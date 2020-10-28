@@ -1,6 +1,7 @@
 import subprocess
 from os import system
 import argparse
+print("wellcome to MinION_pipe! this pipe was developed by R. N. Brancaccio. Enjoy!")
 parser = argparse.ArgumentParser(description='Assemble genome from MinION sequencing data')
 parser.add_argument("--fast5_path", "-f5", help="path to fast5 files", type=str)
 parser.add_argument("--flowcell", "-fc", help="the code of flowcell used (ex. FLO-MIN106)", type=str)
