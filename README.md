@@ -26,7 +26,6 @@ Tools to install: Guppy, Nanofilt, Filtlong, Canu, Medaka.
   * #### Mandatory
 | Name  | Example value | Description     |
 |------------|---------------|-----------------|
-
 | fast5_path | path/to/file | path to fast5 files | 
 | flowcell | flowcell code | the code of flowcell used (ex. FLO-MIN106) |
 | kit | kit_used | the MinION kit used (ex. SQK-LSK109) |
