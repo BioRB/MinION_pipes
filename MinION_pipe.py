@@ -2,7 +2,7 @@ import subprocess
 from os import system
 import argparse
 parser = argparse.ArgumentParser(description='Assemble genome from MinION sequencing data')
-parser.add_argument("fast5_path", "-f5", help="path to fast5 files", type=str)
+parser.add_argument("--fast5_path", "-f5", help="path to fast5 files", type=str)
 parser.add_argument("--flowcell", "-fc", help="the code of flowcell used (ex. FLO-MIN106)", type=str)
 parser.add_argument("--kit", "-k", help="the MinION kit used (ex. SQK-LSK109)", type=str)
 parser.add_argument("--threads", "-t", help="threads to be used (ex. 16)", type=int)
