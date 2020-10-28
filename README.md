@@ -26,13 +26,13 @@ Tools to install: Guppy, Nanofilt, Filtlong, Canu, Medaka.
   * #### Mandatory
 | Name  | Example value | Description     |
 |------------|---------------|-----------------|
-| fast5_path | path/to/file | path to fast5 files | 
-| flowcell | flowcell code | the code of flowcell used (ex. FLO-MIN106) |
-| kit | kit_used | the MinION kit used (ex. SQK-LSK109) |
-| threads | nr. of threads (int)| threads to be used (ex. 8) |
-| num | num_callers (int) | number of callers to use (ex. 8) |
-| barcode | barcode kit code | the code of the barcodes kit used (ex. EXP-PBC001 ) |
-| medaka_m | medaka model | define a model based on the basecaller (ex. r941_min_high_g303) - see medaka tool for more details - |
+| --fast5_path | path/to/file | path to fast5 files | 
+| --flowcell | flowcell code | the code of flowcell used (ex. FLO-MIN106) |
+| --kit | kit_used | the MinION kit used (ex. SQK-LSK109) |
+| --threads | nr. of threads (int)| threads to be used (ex. 8) |
+| --num | num_callers (int) | number of callers to use (ex. 8) |
+| --barcode | barcode kit code | the code of the barcodes kit used (ex. EXP-PBC001 ) |
+| --medaka_m | medaka model | define a model based on the basecaller (ex. r941_min_high_g303) - see medaka tool for more details - |
 
   * #### Flags
 
